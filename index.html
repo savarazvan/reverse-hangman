@@ -1,6 +1,7 @@
-<style>
-    
+<!DOCTYPE html>
+<html>
 
+<style>
     .grid-container {
         display: grid;
         grid-template-columns: auto auto;
@@ -10,14 +11,74 @@
         text-align: center;
         font-size: 30px;
     }
+
+    .hangman {
+        float: left;
+        min-width: 30%;
+        height: 90%;
+        width: 55%;
+    }
+
+    .word {
+        font-size: 5vw;
+        word-break: break-all;
+    }
+
+    .right {
+        margin-top: 10%;
+        float: right;
+        height: 90%;
+        margin-right: 5%;
+        width: 40%;
+    }
+
+    div {
+        word-wrap: break-word
+    }
+
+
+    @media screen and (max-width: 700px) {
+
+        .hangman {
+            height: 50%;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .word {
+            height: 80%;
+            float: none;
+            font-size: 15vw;
+            word-break: break-all;
+        }
+        .right{
+            float:none;
+            width: 100%;
+            margin-top: 0%;
+        }
+
+
+    }
 </style>
-<div>
-    
-    <div style="margin-left: 45%;">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="background-color: white;">
+
+<div style="overflow: auto;">
+
+    <div style="margin-left: 40%;">
         <h1 style="justify-content: center;"> Reverse hangman</h1>
     </div>
-    <div class="grid-container">
-        <img src="img/1.png" style="height: 500pt; width: 500pt;"></img>
-        <p style="font-size: 150pt;"><u>W</u> <u>O</u> <u>_</u> <u>D</u></p>
+    <img id="hangman" src="img/1.png" class="hangman"></img>
+    <div class="right">
+        <p id="word" class="word">WORD</p>
+        <input id="letter" style="margin-top:0%">
+        <button id="button" onclick="updateOutput()">TRY</button>
+        <p id="usedLetters">Used letters: </p>
     </div>
 </div>
+<script src="index.js"></script>
+</body>
+</html>
